@@ -2,7 +2,7 @@
 " Author: Anton Chen
 " Version: 0.1
 " Email: contact@antonchen.com
-" Last Modified: 2016-07-18 13:47
+" Last Modified: 2016-07-18 14:11
 
 " Vim-Plug
 " {{{
@@ -12,6 +12,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
 Plug 'tomasr/molokai'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 
 Plug 'majutsushi/tagbar'
 Plug 'Shougo/neocomplete.vim'
