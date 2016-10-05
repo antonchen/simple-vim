@@ -2,74 +2,81 @@
 " Author: Anton Chen
 " Version: 0.1
 " Email: contact@antonchen.com
-" Last Modified: 2016-07-13 17:45
+" Last Modified: 2016-10-05 18:51
+
+" Load File 加载配置
+" {{{
+if filereadable(expand("~/.vim/plugins.vimrc"))
+        source ~/.vim/plugins.vimrc
+    endif
+
+if filereadable(expand("~/.vim/hotkey.vimrc"))
+    source ~/.vim/hotkey.vimrc
+endif
+
+" }}}
 
 " General Settings 基础设置
 " {{{
 
-" 不要Vim模仿Vi模式，兼容设置
-set nocompatible
-" 设置退格键
-set backspace=indent,eol,start
-
-" 历史记录
-set history=5000
-
+" 高亮
+syntax on
+" 历史行数
+set history=2000
 " 文件类型识别
 filetype on
-" 针对不同的文件类型采用不同的缩进格式
-filetype indent on
-" 允许插件
+" 开启插件
 filetype plugin on
-" 启动自动补全
-filetype plugin indent on
+" 开启自动
+filetype indent on
 
-" 文件修改之后自动载入
-set autoread
+" 基础设置
+set title                              " 终端标题
+set helplang=cn                        " 首选帮助语言
+set magic                              " 开启 magic 正则
+set nobackup                           " 关闭备份
+set noswapfile                         " 关闭交换文件
+set nocompatible                       " 禁止 vi 模式
+set backspace=indent,eol,start         " 设置 <Backspace>
+set whichwrap+=<,>,h,l                 " 左右移动跨行
+set autoread                           " 文件在Vim之外修改过，自动重新读入
+set viminfo^=%                         " 设置viminfo文件存储内容
 
-" 取消备份
-set nobackup
-" 关闭交换文件
-set noswapfile
+" 关闭错误提示
+set novisualbell                       " 关闭闪烁提示
+set noerrorbells                       " 关闭声音提示
+set t_vb=
+set tm=500
 
-" 不启用鼠标
-" set mouse-=a
+" 高亮
+set cursorcolumn                       " 高亮当前列
+set cursorline                         " 高亮当前行
 
-" 修改终端标题
-set title 
+" 禁用鼠标
+" set mouse=a
 
-" 设置viminfo文件存储内容
-set viminfo^=%
+" 搜索
+set hlsearch                           " 高亮匹配
+set incsearch                          " 开启即时搜索
+set ignorecase                         " 搜索时忽略大小写
+set smartcase                          " 字符串有大写字母时大小写敏感
 
-" 开启正则表达式
-set magic
+" 缩进
+set expandtab                          " 使用空格缩进
+set smartindent                        " 智能缩进
+set autoindent                         " 继承缩进
+set shiftround                         " 缩进宽度对齐到 shiftwidth 的整数倍
+set tabstop=4                          " <Tab> 宽度
+set softtabstop=4                      " 编辑模式下 <Tab> 宽度
+set shiftwidth=4                       " 自动缩进宽度
+set smarttab                           " 插入 <Tab> 时使用 'shiftwidth'
 
-" 即时搜索模式
-set incsearch
-" 搜索忽略大小写
-set ignorecase
-" 有大写字母时大小写敏感
-set smartcase
+" 补全
+set wildmenu                           " 命令模式补全
+set wildmode=full                      " 补全菜单样式
+set wildignore=*.o,*~,*.pyc,*.class    " 排除补全
 
-" 智能缩进
-set smartindent
-" 自动缩进
-set autoindent
-
-" Tab 键设置
-" 宽度
-set tabstop=4
-" 继承缩进宽度
-set shiftwidth=4
-" 退格键一次删除 4个空格
-" set softtabstop=4
-set smarttab
-" 使用空格缩进
-set expandtab
-" 缩进时取整
-set shiftround
-
-" 开启代码折叠
+" 代码折叠
 set foldenable
 " 折叠方法
 " manual    手工折叠
@@ -79,7 +86,6 @@ set foldenable
 " diff      对没有更改的文本进行折叠
 " marker    使用标记进行折叠, 默认标记是 {{{ 和 }}}
 set foldmethod=marker
-" set foldlevel=99
 " 代码折叠自定义快捷键 <leader>zz
 let g:FoldMethod = 0
 map <leader>zz :call ToggleFold()<cr>
@@ -108,55 +114,34 @@ elseif g:OS#gui && g:OS#win
     set guifont=Sauce_Code_Powerline:h12
 endif
 
-" 启动后无欢迎界面
-set shortmess=atI
-
 " 隐藏菜单栏
 if g:OS#gui
-set guioptions-=m " 隐藏菜单栏
-set guioptions-=T " 隐藏工具栏
-set guioptions-=L " 隐藏左侧滚动条
-set guioptions-=r " 隐藏右侧滚动条
-set guioptions-=b " 隐藏底部滚动条
-set showtabline=0 " 隐藏Tab栏
+set guioptions-=m                      " 隐藏菜单栏
+set guioptions-=T                      " 隐藏工具栏
+set guioptions-=L                      " 隐藏左侧滚动条
+set guioptions-=r                      " 隐藏右侧滚动条
+set guioptions-=b                      " 隐藏底部滚动条
+set showtabline=0                      " 隐藏Tab栏
 endif
 
-" 退出后内容显示在终端
-set t_ti= t_te=
+set ruler                              " 显示当前行号与列号
+set shortmess=atI                      " 不显示欢迎信息
+set number                             " 显示行号
+set numberwidth=6                      " 设置行号列宽度
+set nowrap                             " 关闭自动换行
+set showcmd                            " 在状态栏显示正在输入的命令
+set showmode                           " 显示当前Vim模式
+set scrolloff=7                        " 剩余 7 行时翻页
+" set showmatch                          " 当关闭如括号这样的代码时，光标跳转到括号开始再跳回
+" set matchtime=3                        " 光标跳转时间
+" set t_ti= t_te=                        " 退出后内容显示在终端
 
-" 开启语法高亮
-syntax on
+" 选中颜色
+hi Visual term=reverse cterm=reverse guibg=Grey
 
-" 显示当前的行号列号
-set ruler
-" 在状态栏显示正在输入的命令
-set showcmd
-" 左下角显示当前Vim模式
-set showmode
-
-" 显示行号
-set number
-" 行号宽度
-set numberwidth=6
-
-" 移动光标时保留多少行开始滚动
-set scrolloff=7
-
-" 命令行（在状态行下）的高度，默认为1，这里是2
-set statusline=%<%f\ %h%m%r%=%k[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]\ %-14.(%l,%c%V%)\ %P
-set laststatus=2
-
-" 突出显示当前列
-set cursorcolumn
-" 突出显示当前行
-set cursorline
-
-" 高亮搜索到的文本
-set hlsearch
-
-" 括号匹配的情况下跳转至匹配括号高亮一下
-" set showmatch
-" set matchtime=2
+" 状态栏
+set laststatus=2                       " 状态栏高度
+set statusline=%<%f\ %h%m%r%=%k<%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}\ [%{&ff}]>\ %-14.(%l,%c%V%)\ %P
 
 " }}}
 
@@ -196,15 +181,6 @@ endif
 " Windows 文件默认保存位置
 if g:OS#win
     exec 'cd ' . fnameescape($WORKING)
-endif
-
-" }}}
-
-" Load File 载入配置
-" {{{
-
-if filereadable(expand("~/.vim/hotkey.vimrc"))
-    source ~/.vim/hotkey.vimrc
 endif
 
 " }}}

@@ -2,7 +2,7 @@
 " Author: Anton Chen
 " Version: 0.1
 " Email: contact@antonchen.com
-" Last Modified: 2016-07-18 14:11
+" Last Modified: 2016-07-20 14:06
 
 " Vim-Plug
 " {{{
