@@ -2,12 +2,12 @@
 " Author: Anton Chen
 " Version: 0.1
 " Email: contact@antonchen.com
-" Last Modified: 2016-10-05 18:49
+" Last Modified: 2016-10-05 20:24
 
 " Global Settings 全局设置
 " {{{
 
-" 修改leader键
+" 设置 <Leader>
 let mapleader = ','
 let g:mapleader = ','
 
