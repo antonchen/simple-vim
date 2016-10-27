@@ -2,7 +2,7 @@
 " Author: Anton Chen
 " Version: 0.1
 " Email: contact@antonchen.com
-" Last Modified: 2016-10-05 18:51
+" Last Modified: 2016-10-27 15:13
 
 " Load File 加载配置
 " {{{
@@ -38,6 +38,7 @@ set nobackup                           " 关闭备份
 set noswapfile                         " 关闭交换文件
 set nocompatible                       " 禁止 vi 模式
 set backspace=indent,eol,start         " 设置 <Backspace>
+"set clipboard=unnamed                  " 拷贝到系统剪切板
 set whichwrap+=<,>,h,l                 " 左右移动跨行
 set autoread                           " 文件在Vim之外修改过，自动重新读入
 set viminfo^=%                         " 设置viminfo文件存储内容
@@ -52,7 +53,7 @@ set tm=500
 set cursorcolumn                       " 高亮当前列
 set cursorline                         " 高亮当前行
 
-" 禁用鼠标
+" 启用鼠标
 " set mouse=a
 
 " 搜索
@@ -177,6 +178,9 @@ set formatoptions+=B
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" Fix crontab
+autocmd filetype crontab setlocal nobackup nowritebackup
 
 " Windows 文件默认保存位置
 if g:OS#win
