@@ -2,7 +2,7 @@
 " Author: Anton Chen
 " Version: 0.1
 " Email: contact@antonchen.com
-" Last Modified: 2016-10-27 15:13
+" Last Modified: 2016-10-27 15:52
 
 " Load File 加载配置
 " {{{
@@ -180,7 +180,7 @@ if has("autocmd")
 endif
 
 " Fix crontab
-autocmd filetype crontab setlocal nobackup nowritebackup
+autocmd FileType crontab set nobackup nowritebackup
 
 " Windows 文件默认保存位置
 if g:OS#win

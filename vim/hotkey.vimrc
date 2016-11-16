@@ -2,11 +2,13 @@
 " Author: Anton Chen
 " Version: 0.1
 " Email: contact@antonchen.com
-" Last Modified: 2016-10-05 14:14
+" Last Modified: 2016-11-16 14:30
 
 " HotKey Settings  快捷键设置
 " {{{
 
+" 禁用 <F1> 帮助
+nmap <F1> <Nop>
 " 行号
 nmap <F2> :set nu! nu?<CR>
 " 换行符
