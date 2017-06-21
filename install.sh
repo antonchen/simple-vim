@@ -1,14 +1,14 @@
 #!/bin/bash
 # Create Date: 2017-05-17 11:24:39
-# Last Modified: 2017-05-17 12:03:51
+# Last Modified: 2017-06-21 11:56:32
 shellDir="$(cd `dirname $0` && pwd)"
 vimConfURL='https://github.com/antonchen/simple-vim/archive/master.zip'
 
 which wget > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-    wget --no-check-certificate -c $vimConfURL
+    wget --no-check-certificate -O simple-vim.zip -c $vimConfURL
 else
-    curl -O $vimConfURL
+    curl -o simple-vim.zip $vimConfURL
 fi
 
 if [ -f master.zip ]; then
