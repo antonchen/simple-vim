@@ -11,8 +11,7 @@ else
     curl -o simple-vim.zip $vimConfURL
 fi
 
-if [ -f master.zip ]; then
-    mv master.zip simple-vim.zip
+if [ -f simple-vim.zip ]; then
     if unzip simple-vim.zip; then
         mv simple-vim-master simple-vim
         rm -f simple-vim.zip
