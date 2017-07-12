@@ -12,6 +12,7 @@ else
 fi
 
 if [ -f simple-vim.zip ]; then
+    test -d simple-vim-master && rm -rf simple-vim-master
     if unzip simple-vim.zip; then
         mv simple-vim-master simple-vim
         rm -f simple-vim.zip
