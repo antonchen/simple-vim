@@ -8,7 +8,7 @@ which wget > /dev/null 2>&1
 if [ $? -eq 0 ]; then
     wget --no-check-certificate -O simple-vim.zip -c $vimConfURL
 else
-    curl -o simple-vim.zip $vimConfURL
+    curl -L -e  '; auto' -o simple-vim.zip $vimConfURL
 fi
 
 if [ -f simple-vim.zip ]; then
