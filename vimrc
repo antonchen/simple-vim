@@ -2,7 +2,7 @@
 " Version: 0.1
 " Author: Anton Chen <contact@antonchen.com>
 " Create Date: 2016-08-22 15:07:51
-" Last Modified: 2017-05-17 11:24:17
+" Last Modified: 2018-03-05 13:36:54
 
 " Settings
 " {{{
@@ -206,6 +206,7 @@ function! AutoSetFileHead()
         call setline(1, "\#!/bin/bash")
         call append(1, "\# Create Date: ".NewFileTime)
         call append(2, "\# Last Modified: ".NewFileTime)
+        call append(3, "HERE=$(cd -P -- $(dirname -- \"$0\") && pwd -P)")
         normal G
         normal o
     endif
