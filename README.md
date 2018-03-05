@@ -6,5 +6,5 @@ Simple vim config for server.
 Run command
 
 ```bash
-curl -s https://raw.githubusercontent.com/antonchen/simple-vim/master/install.sh | bash
+curl -s -k https://raw.githubusercontent.com/antonchen/simple-vim/master/install.sh | bash
 ```
