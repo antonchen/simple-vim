@@ -1,14 +1,15 @@
 #!/bin/bash
 # Create Date: 2017-05-17 11:24:39
-# Last Modified: 2017-06-21 11:56:32
-shellDir="$(cd `dirname $0` && pwd)"
-vimConfURL='https://github.com/antonchen/simple-vim/archive/master.zip'
+# Last Modified: 2018-03-05 13:25:07
+HERE=$(cd -P -- $(dirname -- "$0") && pwd -P)
+DownloadURL='https://github.com/antonchen/simple-vim/archive/master.zip'
 
-which wget > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    wget --no-check-certificate -O simple-vim.zip -c $vimConfURL
+if command -v wget > /dev/null 2>&1; then
+    wget --no-check-certificate -O simple-vim.zip -c $DownloadURL
+elif command -v curl > /dev/null 2>&1; then
+    curl -L -e  '; auto' -o simple-vim.zip $DownloadURL
 else
-    curl -L -e  '; auto' -o simple-vim.zip $vimConfURL
+    echo "[-] Download file failed, please install wget or curl command." >&2
 fi
 
 if [ -f simple-vim.zip ]; then
