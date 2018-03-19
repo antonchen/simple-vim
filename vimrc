@@ -2,7 +2,7 @@
 " Version: 0.1
 " Author: Anton Chen <contact@antonchen.com>
 " Create Date: 2016-08-22 15:07:51
-" Last Modified: 2018-03-05 13:36:54
+" Last Modified: 2018-03-19 17:05:42
 
 " Settings
 " {{{
@@ -190,6 +190,7 @@ hi Visual term=reverse cterm=reverse guibg=Grey
 autocmd FileType crontab set nobackup nowritebackup
 autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 autocmd FileType ruby set tabstop=2 shiftwidth=2 softtabstop=2 expandtab ai
+autocmd FileType yaml set tabstop=2 shiftwidth=2 softtabstop=2 expandtab noai nocin nosi inde=
 autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown  set filetype=markdown.mkd
 
 autocmd BufRead,BufNewFile nginx.conf set filetype=nginx
