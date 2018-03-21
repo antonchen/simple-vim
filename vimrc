@@ -2,7 +2,7 @@
 " Version: 0.1
 " Author: Anton Chen <contact@antonchen.com>
 " Create Date: 2016-08-22 15:07:51
-" Last Modified: 2018-03-19 17:05:42
+" Last Modified: 2018-03-21 11:45:57
 
 " Settings
 " {{{
@@ -29,9 +29,10 @@ set magic                              " 开启 magic 正则
 set nobackup                           " 关闭备份
 set nocompatible                       " 禁止 vi 模式
 set backspace=indent,eol,start         " 设置 <Backspace>
-"set clipboard=unnamed                  " 拷贝到系统剪切板
-set whichwrap+=<,>,h,l                 " 左右移动跨行
+" set clipboard=unnamed                  " 拷贝到系统剪切板
+" set whichwrap+=<,>,h,l                 " 左右移动跨行
 set autoread                           " 文件在Vim之外修改过，自动重新读入
+set lazyredraw                         " 运行宏时不重绘
 
 " 关闭错误提示
 set novisualbell                       " 关闭闪烁提示
@@ -44,8 +45,8 @@ colorscheme molokai
 let g:rehash256 = 1
 
 " 高亮
-set cursorcolumn                       " 高亮当前列
-set cursorline                         " 高亮当前行
+" set cursorcolumn                       " 高亮当前列
+" set cursorline                         " 高亮当前行
 
 " 剩余 7 行时翻页
 set scrolloff=7
