@@ -2,7 +2,9 @@
 " Version: 0.1
 " Author: Anton Chen <contact@antonchen.com>
 " Create Date: 2016-08-22 15:07:51
-" Last Modified: 2018-03-21 11:45:57
+" Last Modified: 2018-07-13 11:32:54
+
+let Author = 'Your Name <youremail@example.com>'
 
 " Settings
 " {{{
@@ -206,9 +208,11 @@ function! AutoSetFileHead()
     " .sh
     if &filetype == 'sh'
         call setline(1, "\#!/bin/bash")
-        call append(1, "\# Create Date: ".NewFileTime)
-        call append(2, "\# Last Modified: ".NewFileTime)
-        call append(3, "HERE=$(cd -P -- $(dirname -- \"$0\") && pwd -P)")
+        call append(1, "\# Author: ".g:Author)
+        call append(2, "\# Create Date: ".NewFileTime)
+        call append(3, "\# Last Modified: ".NewFileTime)
+        call append(4, "\# Description: ")
+        call append(5, "HERE=$(cd -P -- $(dirname -- \"$0\") && pwd -P)")
         normal G
         normal o
     endif
@@ -217,8 +221,10 @@ function! AutoSetFileHead()
     if &filetype == 'python'
         call setline(1, "\#!/usr/bin/env python")
         call append(1, "\# encoding: utf-8")
-        call append(2, "\# Create Date: ".NewFileTime)
-        call append(3, "\# Last Modified: ".NewFileTime)
+        call append(2, "\# Author: ".g:Author)
+        call append(3, "\# Create Date: ".NewFileTime)
+        call append(4, "\# Last Modified: ".NewFileTime)
+        call append(5, "\# Description: ")
         normal G
         normal o
     endif
