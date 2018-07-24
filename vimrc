@@ -2,7 +2,7 @@
 " Version: 0.1
 " Author: Anton Chen <contact@antonchen.com>
 " Create Date: 2016-08-22 15:07:51
-" Last Modified: 2018-07-13 11:32:54
+" Last Modified: 2018-07-24 21:53:38
 
 let Author = 'Your Name <youremail@example.com>'
 
@@ -14,6 +14,8 @@ let mapleader = ','
 let g:mapleader = ','
 " 高亮
 syntax on
+" 设置 256 色
+let t_Co=256
 " 历史行数
 set history=2000
 " 文件类型识别
