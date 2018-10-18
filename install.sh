@@ -1,24 +1,25 @@
 #!/bin/bash
 # Create Date: 2017-05-17 11:24:39
-# Last Modified: 2018-03-05 13:54:55
-HERE=$(cd -P -- $(dirname -- "$0") && pwd -P)
-DownloadURL='https://github.com/antonchen/simple-vim/archive/master.zip'
+# Last Modified: 2018-10-18 18:20:11
+DownloadURL='https://github.com/antonchen/simple-vim/archive/master.tar.gz'
 
+cd /tmp
 if command -v wget > /dev/null 2>&1; then
-    wget --no-check-certificate -O simple-vim.zip -c $DownloadURL
+    wget --no-check-certificate -O simple-vim.tar.gz -c $DownloadURL
 elif command -v curl > /dev/null 2>&1; then
-    curl -k -L -e  '; auto' -o simple-vim.zip $DownloadURL
+    curl -k -L -e  '; auto' -o simple-vim.tar.gz $DownloadURL
 else
     echo "[-] Download file failed, please install wget or curl command." >&2
 fi
 
-if [ -f simple-vim.zip ]; then
+if [ -f simple-vim.tar.gz ]; then
     test -d simple-vim-master && rm -rf simple-vim-master
-    if unzip simple-vim.zip; then
+    echo "[+] Extracting files..." >&2
+    if tar xf simple-vim.tar.gz; then
         mv simple-vim-master simple-vim
-        rm -f simple-vim.zip
+        rm -f simple-vim.tar.gz
     else
-        echo "[-] Unzip file failed, please install unzip command." >&2
+        echo "[-] Extract file failed." >&2
         exit 2
     fi
 else
