@@ -2,7 +2,7 @@
 " Version: 0.1
 " Author: Anton Chen <contact@antonchen.com>
 " Create Date: 2016-08-22 15:07:51
-" Last Modified: 2018-07-24 21:53:38
+" Last Modified: 2019-04-09 14:03:02
 
 let Author = 'Your Name <youremail@example.com>'
 
@@ -45,8 +45,9 @@ set t_vb=
 set tm=500
 
 " 配色
-colorscheme molokai
-let g:rehash256 = 1
+colorscheme onedark
+hi Normal ctermbg=NONE
+hi nonText ctermbg=NONE
 
 " 高亮
 " set cursorcolumn                       " 高亮当前列

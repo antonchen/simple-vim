@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/anton/git/privatisation/Setup/files'
+let g:netrw_dirhist_2='/Users/anton/git/privatisation/Setup/InitTSB'
+let g:netrw_dirhist_3='/Users/anton/git/privatisation/Setup/bin'
