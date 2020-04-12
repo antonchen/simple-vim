@@ -15,7 +15,7 @@ fi
 if [ -f simple-vim.tar.gz ]; then
     test -d simple-vim-master && rm -rf simple-vim-master
     echo "[+] Extracting files..." >&2
-    if tar xf simple-vim.tar.gz; then
+    if gzip -dc simple-vim.tar.gz | tar -xf -; then
         mv simple-vim-master simple-vim
         rm -f simple-vim.tar.gz
     else
