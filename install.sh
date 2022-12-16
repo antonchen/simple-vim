@@ -1,7 +1,7 @@
 #!/bin/bash
 # Create Date: 2017-05-17 11:24:39
 # Last Modified: 2018-10-18 18:20:11
-DownloadURL='https://github.com/antonchen/simple-vim/archive/master.tar.gz'
+DownloadURL='https://ghproxy.com/https://github.com/antonchen/simple-vim/archive/refs/heads/master.tar.gz'
 
 cd /tmp
 if command -v wget > /dev/null 2>&1; then
