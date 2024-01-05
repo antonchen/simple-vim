@@ -1,13 +1,13 @@
 #!/bin/bash
 # Create Date: 2017-05-17 11:24:39
 # Last Modified: 2018-10-18 18:20:11
-DownloadURL='https://ghproxy.com/https://github.com/antonchen/simple-vim/archive/refs/heads/master.tar.gz'
+DownloadURL='https://github.com/antonchen/simple-vim/archive/refs/heads/master.tar.gz'
 
 cd /tmp
 if command -v wget > /dev/null 2>&1; then
     wget --no-check-certificate -O simple-vim.tar.gz -c $DownloadURL
 elif command -v curl > /dev/null 2>&1; then
-    curl -k -L -e  '; auto' -o simple-vim.tar.gz $DownloadURL
+    curl -k -sSL -o simple-vim.tar.gz $DownloadURL
 else
     echo "[-] Download file failed, please install wget or curl command." >&2
 fi
